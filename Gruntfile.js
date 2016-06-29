@@ -4,24 +4,27 @@
 
 module.exports = function (grunt) {
   grunt.initConfig({
-    pkg: grunt.file.readJSON('package.json'),
+    pkg: require('./package.json'),
+
+    jshint: {
+      files: ['Gruntfile.js', 'src/*.js'],
+      options: {
+        jshintrc: '.jshintrc'
+      }
+    },
+
     browserify: {
-      main: {
+      dist: {
         src: ['./src/*.js'],
-        dest: 'dist/script/firstapp.js',
+        dest: 'dist/script/example-app.js',
         options: {
-          alias: ['./src/app.js:FIRSTapp']
+          alias: ['./src/app.js:example-app']
         }
       }
     },
-    concat: {
-      dist: {
-        src: ['src/*.js'],
-        dest: 'dist/<%= pkg.name %>.js'
-      }
-    },
+
     copy: {
-      media : {
+      all: {
         files: [
           {
             expand: true,
@@ -33,23 +36,19 @@ module.exports = function (grunt) {
         ]
       }
     },
+    
     watch: {
       all: {
-        files: ['src/*.js', 'src/index.html', 'src/style.css'],
-        tasks: ['jshint', 'browserify', 'concat', 'copy']
-      }
-    },
-    jshint: {
-      files: ['Gruntfile.js', 'src/*.js'],
-      options: {
-        jshintrc: '.jshintrc'
+        files: ['Gruntfile.js', 'src/*.js', 'src/index.html', 'src/style.css'],
+        tasks: ['default']
       }
     }
   });
+
   grunt.loadNpmTasks('grunt-browserify');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-copy');
-  grunt.loadNpmTasks('grunt-contrib-concat');
-  grunt.registerTask('default', ['jshint', 'browserify', 'concat', 'copy']);
+
+  grunt.registerTask('default', ['jshint', 'browserify', 'copy']);
 };

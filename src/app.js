@@ -2,8 +2,8 @@
  * Created by kerma on 6/23/16.
  */
 
-var assets = require('./assets.js');
+var module = require('./module.js');
 
-assets.pryvAuth();
-assets.userInput();
-assets.clickFunctions();
+module.pryvAuth();
+module.userInput();
+module.clickFunctions();

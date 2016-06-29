@@ -1,8 +1,17 @@
 {
-  "name": "app",
+  "author": "kerma",
+  "name": "example-app",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "license": "ISC",
+  "files": [
+    "src"
+  ],
+  "main": "src/app.js",
+  "dependencies": {
+    "pryv": "git+https://github.com/Kerma0/lib-javascript.git#acceptance-tests-atwork",
+    "underscore": "latest"
+  },
   "devDependencies": {
     "grunt": "latest",
     "grunt-browserify": "latest",
@@ -11,14 +20,5 @@
     "grunt-contrib-jshint": "latest",
     "grunt-contrib-watch": "latest",
     "grunt-shell": "latest"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "kerma",
-  "license": "ISC",
-  "dependencies": {
-    "grunt": "^1.0.1",
-    "pryv": "git+https://github.com/Kerma0/lib-javascript.git#acceptance-tests-atwork"
   }
 }

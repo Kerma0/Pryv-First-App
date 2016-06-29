@@ -34,17 +34,20 @@ module.exports = {
     returnURL: false,
     spanButtonID: 'pryv-button',
     callbacks: {
+      initialization: function () {
+        module.exports.printToConsole('Authentication initialized.\n');
+      },
       needSignin: function(popupUrl, pollUrl, pollRateMs) {
-        module.exports.printToConsole('Please need sign-in:\n' +
-          '  popupUrl: ' + popupUrl + '\n' +
-          '  pollUrl: ' + pollUrl + '\n' +
-          '  pollRateMs: ' + pollRateMs);
+        module.exports.printToConsole('Please sign-in:\n' +
+          '    PopUpUrl: ' + popupUrl + '\n' +
+          '    PollUrl: ' + pollUrl + '\n' +
+          '    PollRateMs: ' + pollRateMs);
       },
       signedIn: function (authData) {
         module.exports.connection = new pryv.Connection(authData);
-        module.exports.printToConsole('Access granted:');
-        module.exports.printToConsole('    Username: ' + authData.username);
-        module.exports.printToConsole('    Token: ' + authData.auth);
+        module.exports.printToConsole('Access granted:\n' +
+          '    Username: ' + authData.username + '\n' +
+          '    Token: ' + authData.auth);
         module.exports.accessInfoArea.value = module.exports.streamsArea.value = 'Loading...';
         module.exports.connection.accessInfo(function (err, info) {
           if (err) { return module.exports.printError('Error while loading Access Info'); }
