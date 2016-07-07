@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pryv Example App</title>
+    <link href="./style.css" rel="stylesheet" type="text/css"/>
+</head>
+<body >
+<h1 style="margin-bottom: 1.5em;" align="center">Pryv example app</h1>
+<span id="pryv-button"></span> <strong>⇠ sign in here</strong><br>
+
+<div class="auth">
+    <h3>Access info</h3>
+    <textarea id="access-info" value="" style="height: 17em;"></textarea>
+</div>
+
+<div class="auth">
+    <h3>Streams</h3>
+    <textarea id="streams" value="" style="height: 17em;"></textarea>
+</div>
+
+<input type="text" id="create-content" placeholder="Content of the event"/>
+<button id="create-button">Create Note Event</button><br><br>
+
+
+<input type="text" id="update-content" placeholder="Content of the event"/>
+<input type="text" id="update-id" placeholder="ID of the event"/>
+<button id="update-button">Update Event</button><br><br>
+<button id="update-last-button">Update Last Event</button><br><br>
+
+<input type="text" id="display-cnt" placeholder="Number of events"/>
+<button id="display-button">Display Last Events</button><br><br>
+
+<input type="text" id="delete-cnt" placeholder="Number of events"/>
+<input type="text" id="delete-id" placeholder="ID of the event"/>
+<button id="delete-button">Delete Last Events</button><br><br>
+
+
+<div id="console-area">
+    <h3>Console</h3>
+    <p style="font-size: 75%; margin-top: 0.1em; margin-bottom: 0.1em">
+        If nothing happens while trying to interact with elements on this page,
+        please open your browser console to see the triggered errors or warnings
+    </p>
+    <textarea id="console" value="" style="height: 25em;"></textarea>
+    <script src="script/example-app.js"></script>
+</div>
+
+</body>
+</html>

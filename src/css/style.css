@@ -1,0 +1,24 @@
+body {
+    font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+h1 {
+    margin: 1.5em 0 0;
+}
+h3 {
+    margin: 0.5em 0 0;
+}
+textarea {
+    width: 95%;
+    height: 15em;
+}
+#console-area {
+    text-align: center;
+    margin-right: auto;
+    margin-left: auto;
+}
+.auth {
+    float: left;
+    width: 50%;
+    height: 18em;
+    text-align: center;
+}
