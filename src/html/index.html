@@ -19,29 +19,27 @@
     <textarea id="streams" value="" style="height: 17em;"></textarea>
 </div>
 
-<input type="text" id="create-content" placeholder="Content of the event"/>
-<button id="create-button">Create Note Event</button><br><br>
-
-
-<input type="text" id="update-content" placeholder="Content of the event"/>
-<input type="text" id="update-id" placeholder="ID of the event"/>
-<button id="update-button">Update Event</button><br><br>
-<button id="update-last-button">Update Last Event</button><br><br>
-
-<input type="text" id="display-cnt" placeholder="Number of events"/>
-<button id="display-button">Display Last Events</button><br><br>
-
-<input type="text" id="delete-cnt" placeholder="Number of events"/>
-<input type="text" id="delete-id" placeholder="ID of the event"/>
-<button id="delete-button">Delete Last Events</button><br><br>
-
+<div id="wrapper">
+    <div class="button">
+        <input type="text" id="create-content" placeholder="Content of the event"/>
+        <button id="create-button">Create Note Event</button><br><br>
+    </div>
+    <div class="button">
+        <input type="text" id="update-content" placeholder="Content of the event"/>
+        <button id="update-last-button">Update Last Event</button><br><br>
+    </div>
+    <div class="button">
+        <input type="text" id="display-cnt" placeholder="Number of events"/>
+        <button id="display-button">Display Last Events</button><br><br>
+    </div>
+    <div class="button">
+        <input type="text" id="delete-cnt" placeholder="Number of events"/>
+        <button id="delete-button">Delete Last Events</button><br><br>
+    </div>
+</div>
 
 <div id="console-area">
     <h3>Console</h3>
-    <p style="font-size: 75%; margin-top: 0.1em; margin-bottom: 0.1em">
-        If nothing happens while trying to interact with elements on this page,
-        please open your browser console to see the triggered errors or warnings
-    </p>
     <textarea id="console" value="" style="height: 25em;"></textarea>
     <script src="script/example-app.js"></script>
 </div>

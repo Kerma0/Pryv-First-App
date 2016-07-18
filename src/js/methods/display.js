@@ -19,14 +19,16 @@ function displayEventData (event) {
 
 module.exports = {
   displayNLastEvents: function (connection, n) {
-    if (!connection) { throw 'Sign in first'; }
+    if (!connection) { binding.printWarning('Sign in first.'); }
     n = Number(n);
-    if (Number.isInteger(n) === false || n <= 0) { throw 'Enter a strictly positive value'; }
+    if (Number.isInteger(n) === false || n <= 0) {
+      binding.printWarning('Enter a strictly positive value.');
+    }
     else if (n === 1) { binding.printToConsole('Displaying ' + n + ' event...'); }
     else { binding.printToConsole('Displaying ' + n + ' events...'); }
     func.getNEvent(connection, n, function (err, events) {
-      if (err) { return console.error('Error: ' + JSON.stringify(err)); }
-      if (events.length === 0) { throw 'There is no event'; }
+      if (err) { return binding.printError(err); }
+      if (events.length === 0) { binding.printWarning('There is no event.'); }
       events.forEach(function (eventData, i) {
         binding.printToConsole('Event ' + (i + 1) + ':');
         displayEventData(events[i]);

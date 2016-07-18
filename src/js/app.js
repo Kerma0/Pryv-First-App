@@ -1,16 +1,17 @@
 /* global require */
 
 var binding = require('./binding.js'),
+  monitor = require('./methods/monitor.js'),
   update = require('./methods/update.js'),
   create = require('./methods/create.js'),
   display = require('./methods/display.js'),
   del = require('./methods/delete.js'),
+  config = require('../util/config.json'),
   Pryv = require('pryv');
 
 var connection,
   eventText = [null, null],
   eventCount = [0, 0],
-  eventId = [null, null],
   settings = {
     requestingAppId: 'example-app',
     requestedPermissions: [{
@@ -45,6 +46,7 @@ var connection,
           binding.area.streams.value = JSON.stringify(
             connection.streams.getDisplayTree(streams), null, 2);
         });
+        monitor.setupMonitor(connection);
       },
       refused: function (code) {
         binding.printToConsole('Access refused: ' + code, false);
@@ -56,7 +58,7 @@ var connection,
   };
 
 Pryv.Auth.config.registerURL = {
-  host: 'reg.pryv.me',
+  host: 'reg.' + config.pryvdomain,
   ssl: 'true'
 };
 Pryv.Auth.setup(settings);
@@ -69,12 +71,6 @@ function userInput () {
   };
   binding.eventContent.update.onchange = function () {
     eventText[1] = binding.eventContent.update.value;
-  };
-  binding.eventId.update.onchange = function () {
-    eventId[0] = binding.eventId.update.value;
-  };
-  binding.eventId.delete.onchange = function () {
-    eventId[1] = binding.eventId.delete.value;
   };
   binding.eventCount.display.onchange = function () {
     eventCount[0] = binding.eventCount.display.value;
@@ -91,13 +87,10 @@ function clickFunctions () {
   binding.button.updateLast.onclick = function () {
     update.updateLastEvent(connection, eventText[1]);
   };
-  binding.button.update.onclick = function () {
-    update.updateEventWithId(connection, eventText[1], eventId[0]);
-  };
   binding.button.display.onclick = function () {
     display.displayNLastEvents(connection, eventCount[0]);
   };
   binding.button.delete.onclick = function () {
-    del.deleteNLastEvent(connection, eventCount[1], eventId[1]);
+    del.deleteNLastEvent(connection, eventCount[1]);
   };
 }

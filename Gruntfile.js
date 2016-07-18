@@ -26,7 +26,7 @@ module.exports = function (grunt) {
         src: ['./test/*.test.js'],
         dest: 'test/script/full-test.js',
         options: {
-          alias: ['./test/main.test.js:full-test.js']
+          alias: ['./test/main.test.js:full-test']
         }
       }
     },
@@ -40,6 +40,17 @@ module.exports = function (grunt) {
             filter: 'isFile',
             src: ['src/html/index.html', 'src/css/style.css'],
             dest: 'dist/'
+          }
+        ]
+      },
+      tinylib: {
+        files: [
+          {
+            expand: true,
+            flatten: true,
+            filter: 'isFile',
+            src: ['src/js/function.js'],
+            dest: 'tinylib/'
           }
         ]
       },

@@ -5,12 +5,16 @@ var binding = require('../binding.js'),
 
 module.exports = {
   createNoteEvent: function (connection, text) {
-    if (!connection) { throw 'Sign in first'; }
-    if (text === null) { throw 'Enter a content'; }
+    if (!connection) { binding.printWarning('Sign in first.'); }
+    if (text === null) { binding.printWarning('Enter a content.'); }
+    var eventData = {
+      streamId: 'ExampleApp',
+      type: 'note/txt',
+      content: text
+    };
     binding.printToConsole('Creating event...');
-    func.createEvent(connection, text, function (err, id) {
-      if (err) { return console.error('Error: ' + JSON.stringify(err)); }
-      binding.printToConsole('Event created: ' + id);
+    func.createEvent(connection, eventData, function (err) {
+      if (err) { return binding.printError(err); }
     });
   }
 };

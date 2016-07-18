@@ -16,6 +16,13 @@ textarea {
     margin-right: auto;
     margin-left: auto;
 }
+#wrapper {
+    text-align: center;
+}
+.button {
+    float: left;
+    width: 25%
+}
 .auth {
     float: left;
     width: 50%;
