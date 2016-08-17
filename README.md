@@ -15,8 +15,8 @@ Also, it contains the file `tinylib/function.js` which can be copied in your own
 
 - Install required packages:
   - Run `npm install` at the root of the repository.
-  - Then run `npm list --depth=0`, if any errors are triggered, run `npm install` again.
-  - Finally, install *grunt* using npm: `npm install grunt -g`.
+  - Run `npm list --depth=0`
+  - Install *grunt* globally using npm: `npm install grunt -g`.
 
 - Run `grunt` at the root of the repository.
 

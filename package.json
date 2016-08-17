@@ -12,7 +12,6 @@
     "pryv": "latest"
   },
   "devDependencies": {
-    "grunt": "latest",
     "lodash": "latest",
     "grunt-browserify": "latest",
     "grunt-contrib-copy": "latest",
