@@ -1,24 +1,19 @@
 {
   "author": "kerma",
   "name": "pryv-example-app",
-  "version": "0.2.0",
-  "description": "",
+  "version": "1.0.0",
+  "description": "This app is an example of how to use Pryv Lib-Javascript most simple functionalities",
   "license": "ISC",
   "files": [
     "src"
   ],
   "main": "src/app.js",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/Kerma0/pryv-example-app.git"
-  },
   "dependencies": {
-    "pryv": "git+https://github.com/Kerma0/lib-javascript.git#acceptance-tests-atwork"
+    "pryv": "latest"
   },
   "devDependencies": {
-    "chai": "latest",
     "grunt": "latest",
-    "mocha": "latest",
+    "lodash": "latest",
     "grunt-browserify": "latest",
     "grunt-contrib-copy": "latest",
     "grunt-contrib-jshint": "latest",

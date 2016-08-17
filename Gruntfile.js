@@ -8,7 +8,7 @@ module.exports = function (grunt) {
     pkg: require('./package.json'),
 
     jshint: {
-      files: ['Gruntfile.js', 'src/**/*.js', 'test/*.test.js'],
+      files: ['Gruntfile.js', 'src/**/*.js'],
       options: {
         jshintrc: '.jshintrc'
       }
@@ -20,13 +20,6 @@ module.exports = function (grunt) {
         dest: 'dist/script/example-app.js',
         options: {
           alias: ['./src/js/app.js:example-app']
-        }
-      },
-      test: {
-        src: ['./test/*.test.js'],
-        dest: 'test/script/full-test.js',
-        options: {
-          alias: ['./test/main.test.js:full-test']
         }
       }
     },
@@ -53,31 +46,12 @@ module.exports = function (grunt) {
             dest: 'tinylib/'
           }
         ]
-      },
-      test: {
-        files: [
-          {
-            expand: true,
-            flatten: true,
-            filter: 'isFile',
-            src: [
-              'node_modules/mocha/mocha.js',
-              'node_modules/mocha/mocha.css',
-              'node_modules/chai/chai.js'
-            ],
-            dest: 'test/vendor'
-          }
-        ]
       }
     },
 
     watch: {
       all: {
-        files: [
-          'Gruntfile.js',
-          'src/**/*.*',
-          'test/*.*'
-        ],
+        files: ['Gruntfile.js', 'src/**/*.*'],
         tasks: ['default']
       }
     }

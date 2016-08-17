@@ -7,25 +7,45 @@ h1 {
 h3 {
     margin: 0.5em 0 0;
 }
+h4 {
+    margin: 0.1em 0 0;
+}
 textarea {
     width: 95%;
     height: 15em;
 }
-#console-area {
+.wrapper {
+    text-align: center;
+}
+.console-area {
     text-align: center;
     margin-right: auto;
     margin-left: auto;
 }
-#wrapper {
-    text-align: center;
+.console {
+    float: left;
+    width: 50%
 }
 .button {
     float: left;
     width: 25%
+}
+.multi-field {
+    float: left;
+    width: 50%;
 }
 .auth {
     float: left;
     width: 50%;
     height: 18em;
     text-align: center;
+}
+.vertical-line {
+    width: 100%;
+    background-color: black;
+    height: 2px;
+    float: left;
+}
+.clear {
+    clear: both;
 }
