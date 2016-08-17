@@ -20,7 +20,7 @@ Also, it contains the file `tinylib/function.js` which can be copied in your own
 
 - Run `grunt` at the root of the repository.
 
-- Open the file `pryv-example-app/dist/index.html` in a browser.
+- Open the file `path_to_repository/pryv-example-app/dist/index.html` in a browser.
 
 ## Usefull links
 
