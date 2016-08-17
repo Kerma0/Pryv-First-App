@@ -1,7 +1,6 @@
-<center><h1>Pryv Example App</h1></center>
-___
+# Pryv Example App
 
-<center><h3>Description</h3></center>
+## Description
 
 This application contain some of the most simple use of the functionalites contained in Pryv Javascript Library. Such as authentication, events and streams management.
 It aims to give an example of how to use and implement theses functionalities whether you are a user or developer.
@@ -9,7 +8,7 @@ It aims to give an example of how to use and implement theses functionalities wh
 Also, it contains the file `tinylib/function.js` which can be copied in your own repository in order to use those functions.
 ___
 
-<center><h3>Installation</h3></center>
+## Installation
 
 1. Install *npm* and *node* required by the application.
 
@@ -25,7 +24,7 @@ ___
 5. Open the file `pryv-example-app/dist/index.html` in a browser.
 ___
 
-<center><h3>Usefull links</h3></center>
+## Usefull links
 
-[Pryv Javascript Library](https://github.com/pryv/lib-javascript)
+[Pryv Javascript Library](https://github.com/pryv/lib-javascript)<br>
 [Getting Started: Javascript](http://api.pryv.com/getting-started/javascript/)
