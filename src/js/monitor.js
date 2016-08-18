@@ -13,8 +13,8 @@ function displayEventChange (action, event) {
   binding.printToMonitor(message);
 }
 function displayStreamChange (action, stream) {
-  var message = '. Stream: ' + action.toUpperCase() + '\t' + stream.name + '\t' +
-    stream.id + '\t' + stream.parentId;
+  var message = '. Stream: ' + action.toUpperCase() + '\t' + stream.id + '\t' +
+    stream.name + '\t' + stream.parentId;
   if (stream.trashed) { message += ' (trashed)'; }
   binding.printToMonitor(message);
 }
