@@ -21,6 +21,10 @@ Also, it contains the file `tinylib/function.js` which can be copied in your own
 
 - Open the file `path_to_repository/pryv-example-app/dist/index.html` in a browser.
 
+## Example
+
+![alt text](https://github.com/Kerma0/pryv-example-app/blob/master/img/pryv-example-app.jpg)
+
 ## Usefull links
 
 [Pryv Javascript Library](https://github.com/pryv/lib-javascript)<br>
