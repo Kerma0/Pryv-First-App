@@ -2,10 +2,8 @@
 
 ## Description
 
-This application contain some of the most simple uses of the functionalites contained in Pryv Javascript Library. Such as authentication, events and streams management.
+This application contain some of the most simple uses of the features contained in Pryv Javascript Library. Such as authentication, events and streams management.
 It aims to give an example of how to use and implement theses functionalities whether you are a user or developer.
-
-Also, it contains the file `tinylib/function.js` which can be copied in your own repository in order to use those functions.
 
 ## Installation
 

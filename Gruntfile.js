@@ -1,6 +1,4 @@
-/**
- * Created by kerma on 6/22/16.
- */
+/* global module, require */
 
 module.exports = function (grunt) {
 
@@ -33,17 +31,6 @@ module.exports = function (grunt) {
             filter: 'isFile',
             src: ['src/html/index.html', 'src/css/style.css'],
             dest: 'dist/'
-          }
-        ]
-      },
-      tinylib: {
-        files: [
-          {
-            expand: true,
-            flatten: true,
-            filter: 'isFile',
-            src: ['src/js/function.js'],
-            dest: 'tinylib/'
           }
         ]
       }

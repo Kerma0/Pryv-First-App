@@ -2,6 +2,7 @@
 
 var binding = require('./binding.js'),
   monitor = require('./monitor.js'),
+  utility = require('../util/utility.js'),
   config = require('../util/config.json'),
   Pryv = require('pryv'),
   methods = {
@@ -46,21 +47,10 @@ var connection,
         binding.printToConsole('...access granted for user ' + authData.username +
           ' with following token: ' + authData.auth + '.\n');
         binding.area.accessInfo.value = binding.area.streams.value = 'Loading...';
-        connection.accessInfo(function (err, info) {
-          if (err) {
-            binding.area.accessInfo.value = 'Something went wrong while loading Access Info.';
-            return console.error(err);
-          }
-          binding.area.accessInfo.value = JSON.stringify(info, null, 2);
-        });
-        connection.streams.get(null, function(err, streams) {
-          if (err) {
-            binding.area.streams.value = 'Something went wrong while loading Streams.';
-            return console.error(err);
-          }
-          binding.area.streams.value = JSON.stringify(
-            connection.streams.getDisplayTree(streams), null, 2);
-        });
+
+        utility.displayAccessInfo(connection);
+        utility.displayStreamTree(connection);
+
         monitor.setupMonitor(connection);
       },
       refused: function (code) {
