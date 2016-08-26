@@ -1,7 +1,7 @@
 /* global require, module */
 
 var binding = require('../../binding.js'),
-  utility = require('../../../util/utility.js'),
+  Format = require('../../../util/format.js'),
   Pryv = require('pryv');
 
 module.exports = {
@@ -27,7 +27,7 @@ module.exports = {
  
       eventList.forEach(function (event, i) {
         binding.printToConsole('Event ' + (i + 1) + ':');
-        utility.displayEventData(event);
+        Format.displayEventData(event);
       });
     });
   }

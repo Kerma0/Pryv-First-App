@@ -1,7 +1,7 @@
 /* global require, module */
 
 var binding = require('../../binding.js'),
-  utility = require('../../../util/utility.js'),
+  Format = require('../../../util/format.js'),
   _ = require('lodash');
 
 module.exports = {
@@ -23,7 +23,7 @@ module.exports = {
       if (streamList.length === 0) { binding.printWarning('There is no stream.'); }
       streamList.forEach(function (stream, i) {
         binding.printToConsole('Stream ' + (i + 1) + ':');
-        utility.displayStreamData(stream);
+        Format.displayStreamData(stream);
       });
     });
   }
