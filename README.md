@@ -10,7 +10,7 @@ This application contains some examples of the features contained in Pryv Javasc
     * *npm*
     * *node*
 
-* Download or clone the repository.
+* Clone the repository.
 
 * Install required packages:
   * Run `npm install grunt -g`, this will install *grunt* globally.
