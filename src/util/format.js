@@ -1,37 +1,36 @@
-/* global module, require */
+/* global require */
 
-var binding = require('../js/binding.js');
+var binding = require('../js/binding.js'),
+  Pryv = require('pryv');
 
-var Format = module.exports = Object;
-
-Format.prototype.displayEventChange = function (action, event) {
+Pryv.Event.prototype.displayEventChange = function (action) {
   var message = '.  Event: ' + action.toUpperCase() + '\t' +
-    event.id + '\t' + event.streamId + '\t' + event.type + '\t' +
-    event.content.substring(0, 30);
-  if (event.trashed) {
+    this.id + '\t' + this.streamId + '\t' + this.type + '\t' +
+    this.content.substring(0, 30);
+  if (this.trashed) {
     message += ' (trashed)';
   }
   binding.printToMonitor(message);
 };
 
-Format.prototype.displayStreamChange = function (action, stream) {
-  var message = '. Stream: ' + action.toUpperCase() + '\t' + stream.id + '\t' +
-    stream.name + '\t' + stream.parentId;
-  if (stream.trashed) { message += ' (trashed)'; }
+Pryv.Stream.prototype.displayStreamChange = function (action) {
+  var message = '. Stream: ' + action.toUpperCase() + '\t' + this.id + '\t' +
+    this.name + '\t' + this.parentId;
+  if (this.trashed) { message += ' (trashed)'; }
   binding.printToMonitor(message);
 };
 
-Format.prototype.displayStreamData = function (stream) {
-  binding.printToConsole('\t{ name: ' + stream.name);
-  binding.printToConsole('\t  id: ' + stream.id);
-  binding.printToConsole('\t  trashed: ' + stream.trashed);
-  binding.printToConsole('\t  parentId: ' + stream.parentId);
-  if (stream.childrenIds) {
-    if (stream.childrenIds.length === 0) {
+Pryv.Stream.prototype.displayStreamData = function () {
+  binding.printToConsole('\t{ name: ' + this.name);
+  binding.printToConsole('\t  id: ' + this.id);
+  binding.printToConsole('\t  trashed: ' + this.trashed);
+  binding.printToConsole('\t  parentId: ' + this.parentId);
+  if (this.childrenIds) {
+    if (this.childrenIds.length === 0) {
       binding.printToConsole('\t  childrenIds: [] }');
     }
     else {
-      stream.childrenIds.forEach(function (childrenId, i, array) {
+      this.childrenIds.forEach(function (childrenId, i, array) {
         if (i === 0 && array.length === 1) {
           binding.printToConsole('\t  childrenIds: [ ' + childrenId + ' ] }');
         }
@@ -49,12 +48,12 @@ Format.prototype.displayStreamData = function (stream) {
   }
 };
 
-Format.prototype.displayEventData = function (event) {
-  binding.printToConsole('\t{ streamId: ' + event.streamId + '\n' +
-    '\t  type: ' + event.type + '\n' +
-    '\t  content: ' + event.content + '\n' +
-    '\t  trashed: ' + event.trashed + '\n' +
-    '\t  tags: ' + event.tags + '\n' +
-    '\t  time: ' + event.time + '\n' +
-    '\t  id: ' + event.id  + ' }');
+Pryv.Event.prototype.displayEventData = function () {
+  binding.printToConsole('\t{ streamId: ' + this.streamId + '\n' +
+    '\t  type: ' + this.type + '\n' +
+    '\t  content: ' + this.content + '\n' +
+    '\t  trashed: ' + this.trashed + '\n' +
+    '\t  tags: ' + this.tags + '\n' +
+    '\t  time: ' + this.time + '\n' +
+    '\t  id: ' + this.id  + ' }');
 };

@@ -2,7 +2,6 @@
 
 var binding = require('./binding.js'),
   utility = require('../util/utility.js'),
-  Format = require('../util/format.js'),
   Pryv = require('pryv');
 
 module.exports = {
@@ -17,14 +16,14 @@ module.exports = {
     monitor.addEventListener(Pryv.MESSAGES.MONITOR.ON_LOAD, function (events) {
       binding.printToConsole('Monitor: events loaded');
       events.forEach(function (event) {
-        Format.displayEventChange('loaded', event);
+        event.displayEventChange('loaded');
       });
     });
 
     monitor.addEventListener(Pryv.MESSAGES.MONITOR.ON_EVENT_CHANGE, function (changes) {
       [ 'created', 'modified', 'trashed' ].forEach(function (action) {
         changes[action].forEach(function (event) {
-          Format.displayEventChange(action, event);
+          event.displayEventChange(action);
         });
       });
     });
@@ -32,7 +31,7 @@ module.exports = {
     monitor.addEventListener(Pryv.MESSAGES.MONITOR.ON_STRUCTURE_CHANGE, function (changes) {
       [ 'created', 'modified', 'trashed', 'deleted' ].forEach(function (action) {
         changes[action].forEach(function (stream) {
-          Format.displayStreamChange(action, stream);
+          stream.displayStreamChange(action, stream);
         });
       });
       utility.displayStreamTree(connection);

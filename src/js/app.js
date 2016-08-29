@@ -1,5 +1,7 @@
 /* global require */
 
+require('../util/format.js');
+
 var binding = require('./binding.js'),
   monitor = require('./monitor.js'),
   utility = require('../util/utility.js'),
