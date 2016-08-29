@@ -6,7 +6,7 @@ var binding = require('../js/binding.js'),
 Pryv.Event.prototype.displayEventChange = function (action) {
   var message = '.  Event: ' + action.toUpperCase() + '\t' +
     this.id + '\t' + this.streamId + '\t' + this.type + '\t' +
-    this.content.substring(0, 30);
+    this.content;
   if (this.trashed) {
     message += ' (trashed)';
   }
