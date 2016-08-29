@@ -2,8 +2,7 @@
 
 ## Description
 
-This application contain some of the most simple uses of the features contained in Pryv Javascript Library. Such as authentication, events and streams management.
-It aims to give an example of how to use and implement theses functionalities whether you are a user or developer.
+This application contains some examples of the features contained in Pryv Javascript Library, such as authentication, events and streams management.
 
 ## Installation
 
