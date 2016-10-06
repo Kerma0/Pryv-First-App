@@ -7,11 +7,11 @@ This application contains some examples of the features contained in Pryv Javasc
 ## Installation
 
 * Prerequisite:
-    * *npm*
-    * *node*
+    * __npm__
+    * __node__
 
 * Install required packages:
-  * Run `npm install grunt -g`, this will install *grunt* globally.
+  * Run `npm install grunt -g`, this will install __grunt__ globally.
   * Run `npm install` at the root of the repository.
 
 * Run `grunt` at the root of the repository.
