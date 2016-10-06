@@ -69,6 +69,7 @@ function userInputs () {
     methods.events.create.createEvent(
       connection,
       binding.content.events.create.value,
+      binding.content.events.type.value,
       binding.content.events.choice.value
     );
   };

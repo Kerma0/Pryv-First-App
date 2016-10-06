@@ -19,6 +19,7 @@ module.exports = {
     events: {
       choice: document.getElementById('stream-chosen-id'),
       create: document.getElementById('event-create-content'),
+      type: document.getElementById('event-type-content'),
       update: document.getElementById('event-update-content'),
       display: document.getElementById('event-display-count'),
       delete: document.getElementById('event-delete-count')
