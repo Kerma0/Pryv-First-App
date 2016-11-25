@@ -18,6 +18,11 @@ This application contains some examples of the features contained in Pryv Javasc
 
 * Open the file `path_to_repository/pryv-example-app/dist/index.html` in a browser.
 
+### Domain setting
+
+By default, the app connects to the **pryv.me** platform, to use it with another platform, modifiy the configuration file [here](https://github.com/Kerma0/pryv-example-app/blob/master/src/util/config.json#L2)
+
+
 ## Example
 
 ![alt text](https://github.com/Kerma0/pryv-example-app/blob/master/img/pryv-example-app.jpg)
