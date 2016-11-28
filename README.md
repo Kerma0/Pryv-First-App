@@ -37,3 +37,7 @@ A `config.json` is available at the root of the repository:
   }
 }
 ```
+
+## Example
+
+![Alt Text](./img/example.png)
