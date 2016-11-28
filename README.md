@@ -24,11 +24,11 @@ It is advised to look at the [Javascript Getting Started](http://api.pryv.com/ge
 
   * Open the link displayed your terminal (default: http://127.0.0.1:8080).
 
-You can chose the pryv/register from url using one of the format below:
-  * url/?pryv-reg={custom pryv domain} (example: pryv.io)
-  * url/?pryv-reg={custom register domain} (example: reg.pryv.io)
-
 ## Config
+
+You can chose the pryv/register from url using one of the format below:
+  * url/?pryv-reg={custom pryv domain} (example: pryv.io).
+  * url/?pryv-reg={custom register domain} (example: reg.pryv.io).
 
 A `config.json` is available at the root of the repository:
 ```
