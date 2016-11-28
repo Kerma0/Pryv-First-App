@@ -2,32 +2,38 @@
 
 ## Description
 
-This application contains some examples of the features contained in Pryv Javascript Library, such as authentication, events and streams management.
+This application contains examples of the most basic features contained in the [Pryv Javascript Library](https://github.com/pryv/lib-javascript) (authentication, events and streams management).
+
+All the functions using those features are located in `src/js/pryv`.
+
+It is advised to look at the [Javascript Getting Started](http://api.pryv.com/getting-started/javascript/).
 
 ## Installation
 
-* Prerequisite:
-    * __npm__
-    * __node__
+* Prerequisite: __*npm*__ & __*node*__
 
-* Install required packages:
-  * Run `npm install grunt -g`, this will install __grunt__ globally.
-  * Run `npm install` at the root of the repository.
+* At the root of the repository:
+  * Install dependencies: `npm install`.
+  * Build the app: `npm run grunt`.
+  * Start the app: `npm start`.
 
-* Run `grunt` at the root of the repository.
+* Open the link displayed your terminal (default: http://127.0.0.1:8080).
 
-* Open the file `path_to_repository/pryv-example-app/dist/index.html` in a browser.
+## Config
 
-### Domain setting
-
-By default, the app connects to the **pryv.me** platform, to use it with another platform, modifiy the configuration file [here](https://github.com/Kerma0/pryv-example-app/blob/master/src/util/config.json#L2)
-
-
-## Example
-
-![alt text](https://github.com/Kerma0/pryv-example-app/blob/master/img/pryv-example-app.jpg)
-
-## Usefull links
-
-[Pryv Javascript Library](https://github.com/pryv/lib-javascript)<br>
-[Getting Started: Javascript](http://api.pryv.com/getting-started/javascript/)
+A `config.json` is available at the root of the repository:
+```
+{
+  "http": {
+    "port": "8080",        // The port listened by the app.
+    "ip": "127.0.0.1"      // The ip used by the app.  
+  },
+  "pryv": {
+    "domain" : "pryv.me",  // The Pryv domain.
+    "permissions": [{
+      "streamId": "*",     // The id of the requested stream (* means all streams).
+      "level": "manage"    // The required permission level (read | contribute | manage).
+    }]
+  }
+}
+```

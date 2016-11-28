@@ -1,117 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Pryv Example App</title>
-    <link href="./style.css" rel="stylesheet" type="text/css"/>
+    <link href="./css/info.css" rel="stylesheet" type="text/css"/>
+    <link href="./css/input.css" rel="stylesheet" type="text/css"/>
+    <link href="./css/title.css" rel="stylesheet" type="text/css"/>
+    <link href="./css/style.css" rel="stylesheet" type="text/css"/>
+    <link href="./css/topBar.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="script/scriptBrowserify.js"></script>
 </head>
-<body >
-<h1 style="margin-bottom: 1.5em;" align="center">Pryv Example App</h1>
 
+<body>
 <div class="wrapper">
-    <span id="pryv-button"></span> <strong>⇠ sign in here</strong><br><br>
-</div>
-
-<div class="auth">
-    <h3>Access info</h3>
-    <textarea id="access-info" value="" style="height: 17em;"></textarea>
-</div>
-
-<div class="auth">
-    <h3>Streams</h3>
-    <textarea id="streams" value="" style="height: 17em;"></textarea>
-</div>
-
-<div class="clear"></div>
-
-<div class="wrapper">
-    <h3> Events Management</h3>
-    <div class="vertical-line"></div><br>
-
-    <div class="wrapper">
-        <h4>Choose the stream in which you want to manage events</h4>
-        <input type="text" id="stream-chosen-id" placeholder="Enter a stream id"/><br><br>
-    </div>
-    <div class="button">
-        <input type="text" id="event-create-content" placeholder="Enter a content"/><br>
-        <input type="text" id="event-type-content" placeholder="Enter a type"/><br><br>
-        <button id="event-create-button">Create Note Event</button><br><br>
-    </div>
-    <div class="button">
-        <input type="text" id="event-update-content" placeholder="Enter a content"/><br><br>
-        <button id="event-update-last-button">Update Last Event</button><br><br>
-    </div>
-    <div class="button">
-        <input type="text" id="event-display-count" placeholder="Enter a number"/><br><br>
-        <button id="event-display-button">Display Last Events</button><br><br>
-    </div>
-    <div class="button">
-        <input type="text" id="event-delete-count" placeholder="Enter a number"/><br><br>
-        <button id="event-delete-button">Delete Last Events</button><br><br>
-    </div>
-    <h5>More about events: <a href="http://api.pryv.com/getting-started/javascript/#manage-events">Getting Started - Events</a></h5>
-</div>
-
-<div class="clear"></div>
-
-<div class="wrapper">
-    <h3> Streams Management</h3>
-    <div class="vertical-line"></div><br>
-
-    <div class="button">
-        <input type="text" id="stream-create-name" placeholder="Enter a name"/><br>
-        <input type="text" id="stream-create-id" placeholder="Enter an id (optional)"/><br>
-        <input type="text" id="stream-create-parentId" placeholder="Enter a parentId (optional)"/>
-    </div>
-    <div class="button">
-        <input type="text" id="stream-update-id" placeholder="Enter an id (mandatory)"/><br>
-        <input type="text" id="stream-update-name" placeholder="Enter a new name"/><br>
-        <input type="text" id="stream-update-parentId" placeholder="Enter a new parentId (optional)" size="23"/>
-    </div>
-    <div class="button">
-        <h4>Include trashed streams ?</h4>
-        <input type="text" id="stream-display-active" placeholder="Yes/No"/><br>
-        <input type="text" id="stream-display-parentId" placeholder="Enter a parentId (optional)"/><br>
-    </div>
-    <div class="button">
-        <h4>Merge events with parent ?</h4>
-        <input type="text" id="stream-delete-merge" placeholder="Yes/No"/><br>
-        <input type="text" id="stream-delete-id" placeholder="Enter an Id"/><br><br><br>
+    <div class="topBar">
+        <div id="home">
+            <a href="http://api.pryv.com/getting-started/javascript/" target="_blank">
+                <img src="./img/iconHome.png">
+            </a>
+        </div>
+        <div id="logo">
+            <a href="http://api.pryv.com/" target="_blank">
+                <img src="./img/logoPrYv.png">
+            </a>
+        </div>
+        <div id="sign">
+            <div id="signDiv">
+                <span id="pryv-button"></span>
+            </div>
+        </div>
     </div>
 
-    <div class="button">
-        <button id="stream-create-button">Create Stream</button><br><br>
-    </div>
-    <div class="button">
-        <button id="stream-update-button">Update Stream</button><br><br>
-    </div>
-    <div class="button">
-        <button id="stream-display-button">Display Streams</button><br><br>
-    </div>
-    <div class="button">
-        <button id="stream-delete-button">Delete Stream</button><br><br>
-    </div>
-    <h5>More about streams: <a href="http://api.pryv.com/getting-started/javascript/#manage-streams">Getting Started - Streams</a></h5>
-</div>
+    <div class="container">
+        <div class="hideDiv">
+            <p id="hideState">Hide</p>
+        </div>
 
-<div style="clear: both;"></div>
+        <div class="info" id="accessInfoDiv">
+            <h3>Access info</h3>
+            <textarea id="accessInfo" value="" readonly="readonly"></textarea>
+        </div>
 
-<div class="wrapper">
-    <div class="console">
-        <div class="console-area">
+        <div class="info" id="streamTreeDiv">
+                <h3>Streams</h3>
+            <textarea id="streamTree" value="" readonly="readonly"></textarea>
+        </div>
+    </div>
+
+    <div class="title">
+        <div class="titleDiv" id="eventsTitle">
+            <h2>Events Management</h2>
+        </div>
+        <div class="titleDiv" id="streamsTitle">
+            <h2>Streams Management</h2>
+        </div>
+    </div>
+
+    <div class="container" id="eventsContainer">
+        <div class="streamChoiceDiv">
+            <p id="eventsParagraph">Select a stream in which you wish to manage events: </p>
+            <select id="streamChoiceForEventManagement"></select><br>
+        </div>
+
+        <div class="subContainer">
+            <h3>Create</h3>
+            <input type="text" id="eventCreateContent" placeholder="Content" required="required"/><br>
+            <select id="eventTypeChoice" required="required">
+                <option value="note/txt">Text</option>
+                <option value="mass/g">Mass (number: g)</option>
+                <option value="force/n">Force (number: N)</option>
+                <option value="length/m">Length (number: m)</option>
+                <option value="ratio/percent">Percent (number: %)</option>
+                <option value="frequency/bpm">Frequency (number: bpm)</option>
+            </select><br>
+            <button id="eventCreateButton">Create Event</button>
+        </div>
+
+        <div class="subContainer">
+            <h3>Update</h3>
+            <input type="text" id="eventUpdateContent" placeholder="Content" required="required"/><br>
+            <button id="eventUpdateButton">Update Last Event</button>
+        </div>
+
+        <div class="subContainer">
+            <h3>Get</h3>
+            <input type="text" id="eventGetCount" placeholder="Number" required="required"/><br>
+            <button id="eventGetButton">Display Last Events</button>
+        </div>
+
+        <div class="subContainer">
+            <h3>Delete</h3>
+            <input type="text" id="eventDeleteCount" placeholder="Number" required="required"/><br>
+            <button id="eventDeleteButton">Delete Last Events</button>
+        </div>
+    </div>
+
+    <div class="container" id="streamsContainer">
+        <div class="subContainer">
+            <h3>Create</h3>
+            <input type="text" id="streamCreateName" placeholder="Name"/><br>
+            <input type="text" id="streamCreateId" placeholder="StreamId (optional)"/><br>
+            <input type="text" id="streamCreateParentId" placeholder="ParentId (optional)"/><br>
+            <button id="streamCreateButton">Create Stream</button>
+        </div>
+
+        <div class="subContainer">
+            <h3>Update</h3>
+            <select id="streamChoiceForStreamUpdate"></select><br>
+            <input type="text" id="streamUpdateName" placeholder="New Name"/><br>
+            <input type="text" id="streamUpdateParentId" placeholder="New ParentId (optional)"/>
+            <button id="streamUpdateButton">Update Stream</button>
+        </div>
+
+        <div class="subContainer">
+            <h3>Get</h3>
+            <div class="checkboxDiv">
+                <input type="checkbox" name="includeTrashed" id="includeTrashed">
+                <label for="includeTrashed">Include trashed streams</label>
+            </div>
+            <input type="text" id="streamGetParentId" placeholder="ParentId (optional)"/><br>
+            <button id="streamGetButton">Display Streams</button>
+        </div>
+
+        <div class="subContainer">
+            <h3>Delete</h3>
+            <div class="checkboxDiv">
+                <input type="checkbox" name="mergeEvents" id="mergeEvents">
+                <label for="mergeEvents">Merge events with parent</label>
+            </div>
+            <input type="text" id="streamDeleteId" placeholder="StreamId"/><br>
+            <button id="streamDeleteButton">Delete Stream</button>
+        </div>
+    </div>
+
+    <div class="container" id="consoleContainer">
+        <div class="info">
             <h3>Console</h3>
-            <textarea id="console" value="" style="height: 25em;"></textarea>
+            <textarea id="console" value="" readonly="readonly"></textarea>
         </div>
-    </div>
-    <div class="console">
-        <div id="console-area">
-        <h3>Monitor</h3>
-            <textarea id="monitor" value="" style="height: 25em;"></textarea>
+        <div class="info">
+            <h3>Monitor</h3>
+            <textarea id="monitor" value="" readonly="readonly"></textarea>
         </div>
     </div>
 </div>
-
-<script src="script/example-app.js"></script>
-
 </body>
 </html>

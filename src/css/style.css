@@ -1,51 +1,79 @@
 body {
     font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    min-width: 750px;
+    margin: 0px;
 }
-h1 {
-    margin: 1.5em 0 0;
-}
-h3 {
-    margin: 0.5em 0 0;
-}
-h4 {
-    margin: 0.1em 0 0;
-}
-textarea {
-    width: 95%;
-    height: 15em;
-}
+
 .wrapper {
+    margin: auto;
     text-align: center;
+    padding-bottom: 5px;
 }
-.console-area {
+
+.container {
+    width: 95%;
     text-align: center;
-    margin-right: auto;
-    margin-left: auto;
+    border-radius: 6px;
+    display: inline-block;
+    box-sizing: border-box;
+    margin: 0px 2.5% 5px 2.5%;
+    padding: 5px 5px 25px 5px;
+    background-color: #e6e6e6;
 }
-.console {
-    float: left;
-    width: 50%
+
+.container h2 {
+    font-size: 30px;
+    margin: 10px 0px 10px 0px;
 }
-.button {
-    float: left;
-    width: 25%
+
+#consoleContainer {
+    margin-top: 15px;
 }
-.multi-field {
-    float: left;
-    width: 50%;
+
+.subContainer {
+    width: 250px;
+    padding-bottom: 15px;
+    border-radius: 6px;
+    display: inline-block;
+    vertical-align: middle;
+    box-sizing: border-box;
+    background-color: #cdcdcd;
+    margin: 25px 10px 0px 10px;
 }
-.auth {
-    float: left;
-    width: 50%;
-    height: 18em;
-    text-align: center;
+
+.subContainer h3 {
+    font-size: 20px;
+    margin: 10px 0px 10px 0px;
 }
-.vertical-line {
-    width: 100%;
-    background-color: black;
-    height: 2px;
-    float: left;
+
+.streamChoiceDiv {
+    padding: 7px 0px 0px 0px;
 }
-.clear {
-    clear: both;
+
+.streamChoiceDiv #eventsParagraph {
+    display: inline;
+}
+
+.checkboxDiv {
+    padding: 0px 5px 5px 0px;
+}
+
+.hideDiv {
+    cursor: pointer;
+    position: absolute;
+    border-radius: 6px;
+    margin: -5px 0px 0px -5px;
+    border: 1px solid #cdcdcd;
+    background-color: #e6e6e6;
+    transition: background-color 500ms;
+}
+
+.hideDiv:hover {
+    background-color: #cdcdcd;
+    transition: background-color 500ms;
+}
+
+.hideDiv p {
+    margin: 0px;
+    padding: 3.5px 5px 3.5px 5px;
 }

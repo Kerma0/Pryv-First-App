@@ -3,11 +3,14 @@
   "name": "pryv-example-app",
   "version": "1.0.0",
   "description": "This app is an example of how to use Pryv Lib-Javascript most simple functionalities",
-  "license": "ISC",
   "files": [
     "src"
   ],
   "main": "src/app.js",
+  "scripts": {
+    "grunt": "grunt",
+    "start": "node src/server.js"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/Kerma0/pryv-example-app.git"
@@ -17,7 +20,11 @@
   },
   "devDependencies": {
     "grunt": "latest",
+    "jquery": "latest",
     "lodash": "latest",
+    "winston": "latest",
+    "express": "latest",
+    "body-parser": "latest",
     "grunt-browserify": "latest",
     "grunt-contrib-copy": "latest",
     "grunt-contrib-jshint": "latest",

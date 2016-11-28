@@ -1,0 +1,53 @@
+input[type=text] {
+    width: 12em;
+    margin: 2px;
+    outline: none;
+    color: #5a5a5a;
+    font-size: 1em;
+    line-height: 1.25;
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.75);
+    font-family: inherit;
+    transition: .18s ease-out;
+    border: 1px solid #9b9b9b;
+    padding: 0.4em 0.4em 0.4em;
+    box-shadow: inset 0px 0px 1px 0px #9b9b9b, 0px 0px 1px 0px #9b9b9b;
+}
+input[type=text]:hover {
+    border: 1px solid #828282;
+    box-shadow: inset 0px 0px 2px 0px #9b9b9b, 0px 0px 1px 0px #9b9b9b;
+}
+
+input[type=text]:focus {
+    color: #1e1e1e;
+    border: 1px solid #1E90FF;
+    box-shadow: inset 0px 0px 1px 0px #9b9b9b, 0px 0px 1px 0px #9b9b9b;
+}
+
+input[type=checkbox] {
+    position:absolute;
+    clip: rect(0 0 0 0);
+}
+input[type=checkbox] + label {
+    padding-left:23px;
+    height:18px;
+    display:inline-block;
+    background-repeat:no-repeat;
+    cursor:pointer;
+}
+input[type=checkbox]:checked + label {
+    background-position: 0 -18px;
+}
+
+label {
+    background-image: url('../img/checkboxStyle.png');
+}
+
+select {
+    width: 14.1em;
+    margin: 2px;
+}
+
+button {
+    margin: 5px;
+}

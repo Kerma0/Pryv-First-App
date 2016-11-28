@@ -1,0 +1,62 @@
+.topBar {
+    width: 95%;
+    height: 50px;
+    padding: 0px;
+    border-radius: 6px;
+    margin: 10px 2.5% 15px 2.5%;
+    background: #e6e6e6;
+}
+
+.topBar #home {
+    float: left;
+    height: inherit;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-left: 0px;
+}
+
+.topBar #logo {
+    height: inherit;
+    padding-left: 65px;
+    padding-right: 10px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.topBar #sign {
+    float: right;
+    height: inherit;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-right: 0px;
+}
+
+.topBar #sign #signDiv {
+    margin-top: 11px;
+}
+
+.topBar a {
+    display: inline-block;
+    text-decoration: none;
+}
+
+.topBar img {
+    height: 40px;
+    margin-top: 5px;
+    opacity: 0.75;
+    transition: opacity 500ms;
+}
+
+.topBar img:hover {
+    opacity: 1;
+    transition: opacity 500ms;
+}
+
+.topBar span {
+    opacity: 0.75;
+    transition: opacity 500ms;
+}
+.topBar span:hover {
+    opacity: 1;
+    transition: opacity 500ms;
+}

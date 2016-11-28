@@ -14,10 +14,10 @@ module.exports = function (grunt) {
 
     browserify: {
       dist: {
-        src: ['./src/**/*.js'],
-        dest: 'dist/script/example-app.js',
+        src: ['./src/js/**/*.js'],
+        dest: 'dist/script/scriptBrowserify.js',
         options: {
-          alias: ['./src/js/app.js:example-app']
+          alias: ['./src/js/script.js:scriptBrowserify']
         }
       }
     },
@@ -29,8 +29,22 @@ module.exports = function (grunt) {
             expand: true,
             flatten: true,
             filter: 'isFile',
-            src: ['src/html/index.html', 'src/css/style.css'],
+            src: ['src/html/index.html'],
             dest: 'dist/'
+          },
+          {
+            expand: true,
+            flatten: true,
+            filter: 'isFile',
+            src: ['src/css/*.css'],
+            dest: 'dist/css'
+          },
+          {
+            expand: true,
+            flatten: true,
+            filter: 'isFile',
+            src: ['img/*.png'],
+            dest: 'dist/img'
           }
         ]
       }

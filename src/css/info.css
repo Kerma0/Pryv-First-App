@@ -1,0 +1,30 @@
+.info {
+    width: 49%;
+    display: inline-block;
+}
+
+.info textarea {
+    width: 98%;
+    height: 20em;
+    border: none;
+    padding: 5px;
+    resize: none;
+    color: #e6e6e6;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: rgba(30, 30, 30, 0.85);
+    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.25), 5px 0px 10px 0px rgba(0, 0, 0, 0.25), -5px 0px 10px 0px rgba(0, 0, 0, 0.25);
+}
+
+.info h3 {
+    font-size: 20px;
+    margin: 10px 0px 10px 0px;
+}
+
+.info #console {
+    height: 25em;
+}
+
+.info #monitor {
+    height: 25em;
+}
