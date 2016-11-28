@@ -56,7 +56,7 @@ function pryvAuth(settings) {
   var domain = pryv.utility.urls.parseClientURL().parseQuery()['pryv-reg'];
 
   console.log('domain', domain);
-  if (domain && domain.substring(0, 4) === 'reg.') {w
+  if (domain && domain.substring(0, 4) === 'reg.') {
     pryv.Auth.config.registerURL.host = domain;
   } else if (domain) {
     pryv.Auth.config.registerURL.host = 'reg.' + domain;
