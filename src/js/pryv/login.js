@@ -54,7 +54,7 @@ module.exports.pryvLogin = function (callback) {
 
 function pryvAuth(settings) {
   var domain = pryv.utility.urls.parseClientURL().parseQuery()['pryv-reg'];
-  
+
   if (domain && domain.substring(0, 4) === 'reg.') {
     pryv.Auth.config.registerURL.host = domain;
   } else if (domain) {
