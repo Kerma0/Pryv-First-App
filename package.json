@@ -31,6 +31,7 @@
     "grunt-contrib-watch": "latest",
     "grunt-contrib-clean": "latest",
     "grunt-build-gh-pages": "latest",
-    "grunt-shell": "latest"
+    "grunt-shell": "latest",
+    "grunt-cli": "latest"
   }
 }
