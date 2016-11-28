@@ -29,6 +29,8 @@
     "grunt-contrib-copy": "latest",
     "grunt-contrib-jshint": "latest",
     "grunt-contrib-watch": "latest",
+    "grunt-contrib-clean": "latest",
+    "grunt-build-gh-pages": "latest",
     "grunt-shell": "latest"
   }
 }
