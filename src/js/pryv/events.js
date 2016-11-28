@@ -7,7 +7,7 @@ var display = require('../utils/display');
 
 module.exports.createEvent = function (connection) {
   var $streamId = $('#streamChoiceForEventManagement option:selected'),
-    $type = $('#eventTypeChoice option:selected'),
+    $type = $('#eventCreateType'),
     $content = $('#eventCreateContent');
 
   if (!connection) {
@@ -19,6 +19,10 @@ module.exports.createEvent = function (connection) {
   if (!$content.val()) {
     return display.printWarning('event', 'create', 'You must enter a content.');
   }
+  if (!$type.val()) {
+    return display.printWarning('event', 'create', 'You must enter a type.');
+  }
+
 
   var eventData = {
     streamId: $streamId.val(),
