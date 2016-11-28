@@ -8,6 +8,8 @@ All the functions using those features are located in `src/js/pryv`.
 
 It is advised to look at the [Javascript Getting Started](http://api.pryv.com/getting-started/javascript/).
 
+This app is available on [Github Pages](https://kerma0.github.io/pryv-example-app/).
+
 ## Installation
 
 * Prerequisite: __*npm*__ & __*node*__
