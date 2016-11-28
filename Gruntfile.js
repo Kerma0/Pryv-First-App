@@ -70,4 +70,5 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-build-gh-pages');
 
   grunt.registerTask('default', ['jshint', 'browserify', 'copy']);
+  grunt.registerTask('gh-pages', ['buildGhPages']);
 };
