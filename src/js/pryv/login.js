@@ -48,6 +48,21 @@ module.exports.pryvLogin = function (callback) {
       }
     };
 
-  pryv.Auth.config.registerURL.host = 'reg.' + config.pryv.domain;
-  pryv.Auth.setup(settings);
+  pryvAuth(settings);
 };
+
+
+function pryvAuth(settings) {
+  var domain = pryv.utility.urls.parseClientURL().parseQuery()['pryv-reg'];
+
+  console.log('domain', domain);
+  if (domain && domain.substring(0, 4) === 'reg.') {w
+    pryv.Auth.config.registerURL.host = domain;
+  } else if (domain) {
+    pryv.Auth.config.registerURL.host = 'reg.' + domain;
+  } else {
+    pryv.Auth.config.registerURL.host = 'reg.' + config.pryv.domain;
+  }
+
+  pryv.Auth.setup(settings);
+}

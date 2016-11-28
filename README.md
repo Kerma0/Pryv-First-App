@@ -10,16 +10,23 @@ It is advised to look at the [Javascript Getting Started](http://api.pryv.com/ge
 
 ## Installation
 
-Access the app via [Github Pages](https://kerma0.github.io/pryv-example-app/), or clone the reposiory and following the steps below:
+* Access the app via [Github Pages](https://kerma0.github.io/pryv-example-app/)
 
-* Prerequisite: __*npm*__ & __*node*__
+  __OR__
 
-* At the root of the repository:
-  * Install dependencies: `npm install`.
-  * Build the app: `npm run grunt`.
-  * Start the app: `npm start`.
+* Clone/Download and follow the steps below:
+  * Prerequisite: __*npm*__ & __*node*__
 
-* Open the link displayed your terminal (default: http://127.0.0.1:8080).
+  * At the root of the repository:
+    * Install dependencies: `npm install`.
+    * Build the app: `npm run grunt`.
+    * Start the app: `npm start`.
+
+  * Open the link displayed your terminal (default: http://127.0.0.1:8080).
+
+You can chose the pryv/register from url using one of the format below:
+  * url/?pryv-reg={custom pryv domain} (example: pryv.io)
+  * url/?pryv-reg={custom register domain} (example: reg.pryv.io)
 
 ## Config
 
