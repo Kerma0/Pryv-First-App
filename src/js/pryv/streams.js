@@ -94,7 +94,7 @@ module.exports.deleteStream = function(connection) {
   if (!$streamId.val()) {
     return display.printWarning('stream', 'update', 'You must enter a streamId.');
   }
-  
+
   var mergeEventsWithParent = false;
   var streamData = { id: $streamId.val() };
   if ($choice.length === 1) { mergeEventsWithParent = true; }
