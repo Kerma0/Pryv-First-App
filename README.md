@@ -10,7 +10,7 @@ It is advised to look at the [Javascript Getting Started](http://api.pryv.com/ge
 
 ## Installation
 
-* Access the app via [Github Pages](https://kerma0.github.io/pryv-example-app/)
+* Access the app via [Github Pages](https://kerma2.github.io/pryv-example-app/)
 
   __OR__
 
