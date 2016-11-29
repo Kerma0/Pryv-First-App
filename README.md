@@ -27,8 +27,8 @@ It is advised to look at the [Javascript Getting Started](http://api.pryv.com/ge
 ## Config
 
 You can chose the pryv/register domain from url using one of the format below:
-  * url/?pryv-reg={custom pryv domain} (example: pryv.io).
-  * url/?pryv-reg={custom register domain} (example: reg.pryv.io).
+  * url/?pryv-domain={custom pryv domain} (example: pryv.io).
+  * url/?pryv-domain={custom register domain} (example: reg.pryv.io).
 
 A `config.json` is available at the root of the repository:
 ```

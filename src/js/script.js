@@ -7,30 +7,20 @@ var display = require('./utils/display'),
   events = require('./pryv/events'),
   login = require('./pryv/login');
 
-
 var connection = null;
 
 $(document).ready(function() {
-  var $eventsTitle = $('#eventsTitle'),
-    $streamsTitle =  $('#streamsTitle'),
-    $hideOption = $('.hideDiv'),
-
-    $createEvent = $('#eventCreateButton'),
-    $updateEvent = $('#eventUpdateButton'),
-    $getEvent = $('#eventGetButton'),
-    $deleteEvent = $('#eventDeleteButton'),
-
-    $createStream = $('#streamCreateButton'),
-    $updateStream = $('#streamUpdateButton'),
-    $getStream = $('#streamGetButton'),
-    $deleteStream = $('#streamDeleteButton');
-
-  $hideOption.click(function () {
-    display.hideOption();
-  });
-
+  tabManagement();
   display.tabState('start');
   login.pryvLogin(function (auth) { connection = auth; });
+  eventsManagement(connection);
+  streamsManagement(connection);
+});
+
+function tabManagement() {
+  var $eventsTitle = $('#eventsTitle'),
+    $streamsTitle =  $('#streamsTitle'),
+    $hideOption = $('.hideDiv');
 
   $eventsTitle.click(function () {
     display.tabState('events');
@@ -38,6 +28,16 @@ $(document).ready(function() {
   $streamsTitle.click(function () {
     display.tabState('streams');
   });
+  $hideOption.click(function () {
+    display.hideOption();
+  });
+}
+
+function eventsManagement(connection) {
+  var $createEvent = $('#eventCreateButton'),
+    $updateEvent = $('#eventUpdateButton'),
+    $getEvent = $('#eventGetButton'),
+    $deleteEvent = $('#eventDeleteButton');
 
   $createEvent.click(function () {
     events.createEvent(connection);
@@ -51,6 +51,13 @@ $(document).ready(function() {
   $deleteEvent.click(function () {
     events.deleteEvent(connection);
   });
+}
+
+function streamsManagement(connection) {
+  var $createStream = $('#streamCreateButton'),
+    $updateStream = $('#streamUpdateButton'),
+    $getStream = $('#streamGetButton'),
+    $deleteStream = $('#streamDeleteButton');
 
   $createStream.click(function () {
     streams.createStream(connection);
@@ -64,5 +71,4 @@ $(document).ready(function() {
   $deleteStream.click(function () {
     streams.deleteStream(connection);
   });
-
-});
+}

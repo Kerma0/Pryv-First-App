@@ -29,13 +29,13 @@ module.exports.pryvLogin = function (callback) {
           connection = new pryv.Connection(settings);
           connection.fetchStructure(function (err) {
             if (err) { display.printError(err); }
+            display.printToConsole('...access granted for user ' + settings.username +
+              ' with following token: ' +  settings.auth + '.');
+            info.showStreamTree(connection);
+            monitor.setupMonitor(connection);
+            callback(connection);
           });
-          display.printToConsole('...access granted for user ' + settings.username +
-            ' with following token: ' +  settings.auth + '.');
-          info.showStreamTree(connection);
           info.showAccessInfo(connection);
-          monitor.setupMonitor(connection);
-          callback(connection);
         },
         refused: function (code) {
           display.printToConsole('...access refused: ' + code + '\n');
@@ -53,7 +53,7 @@ module.exports.pryvLogin = function (callback) {
 
 
 function pryvAuth(settings) {
-  var domain = pryv.utility.urls.parseClientURL().parseQuery()['pryv-reg'];
+  var domain = pryv.utility.urls.parseClientURL().parseQuery()['pryv-domain'];
 
   if (domain && domain.substring(0, 4) === 'reg.') {
     pryv.Auth.config.registerURL.host = domain;

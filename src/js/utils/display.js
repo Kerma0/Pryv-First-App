@@ -44,8 +44,11 @@ module.exports.displayStreamChange = function (stream, action) {
 };
 
 module.exports.displayStreamData = function (stream) {
-  var message = '\t{ name: ' + stream.name + '\n' + '\t  id: ' + stream.id + '\n' +
-    '\t  trashed: ' + stream.trashed + '\n' +  '\t  parentId: ' + stream.parentId + '\n';
+  var message = '\t{ name: ' + stream.name + '\n' +
+    '\t  id: ' + stream.id + '\n' +
+    '\t  trashed: ' + stream.trashed + '\n' +
+    '\t  parentId: ' + stream.parentId + '\n';
+
   if (stream.childrenIds) {
     if (stream.childrenIds.length === 0) {
       message += '\t  childrenIds: [] }';
@@ -53,16 +56,16 @@ module.exports.displayStreamData = function (stream) {
     else {
       stream.childrenIds.forEach(function (childrenId, i, array) {
         if (i === 0 && array.length === 1) {
-          message += '\t  childrenIds: [ ' + childrenId + ' ] }';
+          message += '\t  childrenIds: [\n' + '\t    ' + childrenId + '\n\t  ] }';
         }
-        else if (i === 0 && array.length > 1) {
-          message += '  childrenIds: [ ' + childrenId + '\n';
+        else if (i === 0) {
+          message += '\t  childrenIds: [\n' + '\t    ' + childrenId + '\n';
         }
         else if (i === array.length - 1) {
-          message += '\t    ' + childrenId + ' ] }';
+          message += '\t    ' + childrenId + '\n\t  ] }';
         }
         else {
-          message += '\t    ' + childrenId;
+          message += '\t    ' + childrenId + '\n';
         }
       });
     }
