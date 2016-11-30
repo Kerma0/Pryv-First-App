@@ -1,7 +1,8 @@
 /* global require */
 
 var http = require('http'),
-  logger = require('winston');
+  logger = require('winston'),
+  fs = require('fs');
 
 var app = require('./app'),
   config = require('../config');
@@ -10,6 +11,10 @@ if (!config.http || !config.http.ip || !config.http.port) {
   return console.error('Wrong data in field \'http\' in \'src/config.json\', please read README.');
 } else if (!config.pryv || !config.pryv.domain || !config.pryv.permissions) {
   return console.error('Wrong data in field \'pryv\' in \'src/config.json\', please read README.');
+}
+
+if (!fs.existsSync(__dirname + '/../dist/')) {
+  return console.log('WARNING: Run \'npm run grunt\' before \'npm start\' to build the app.');
 }
 
 var server = http.createServer(app);

@@ -11,18 +11,16 @@ module.exports.showStreamTree = function (connection) {
 
   $console.val('Loading...');
   manage.updateStreamList(null);
-  setTimeout(function () {
-    connection.streams.walkTree(null, function (stream) {
-      if (!stream.parentId) { streamList.push(stream); }
-    }, function (err) {
-      if (err) {
-        $console.val('Something went wrong while loading stream tree.');
-        return print.printError(err);
-      }
-      manage.updateStreamList(streamList);
-      $console.val(JSON.stringify(connection.streams.getDisplayTree(streamList), null, '  '));
-    });
-  }, 500);
+  connection.streams.walkTree(null, function (stream) {
+    if (!stream.parentId) { streamList.push(stream); }
+  }, function (err) {
+    if (err) {
+      $console.val('Something went wrong while loading stream tree.');
+      return print.printError(err);
+    }
+    manage.updateStreamList(streamList);
+    $console.val(JSON.stringify(connection.streams.getDisplayTree(streamList), null, '  '));
+  });
 };
 
 module.exports.showAccessInfo = function (connection) {
