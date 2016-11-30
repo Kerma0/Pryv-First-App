@@ -30,7 +30,9 @@ You can chose the pryv/register domain from url using one of the format below:
   * url/?pryv-domain={custom pryv domain} (example: pryv.io).
   * url/?pryv-domain={custom register domain} (example: reg.pryv.io).
 
-A `config.json` is available at the root of the repository:
+Note that this parameter will override the domain set in the `config.json` file.
+
+The `config.json` file is available at the root of the repository:
 ```
 {
   "http": {

@@ -2,10 +2,11 @@
 
 var $ = require('jquery');
 
-var display = require('./utils/display'),
-  streams = require('./pryv/streams'),
-  events = require('./pryv/events'),
-  login = require('./pryv/login');
+var login = require('./pryv/login'),
+  manage = require('./utils/manage'),
+  events = require('./pryv/methods/events'),
+  streams = require('./pryv/methods/streams'),
+  accesses = require('./pryv/methods/accesses');
 
 var connection = null;
 
@@ -18,11 +19,15 @@ $(document).ready(function() {
     $createStream = $('#streamCreateButton'),
     $updateStream = $('#streamUpdateButton'),
     $getStream = $('#streamGetButton'),
-    $deleteStream = $('#streamDeleteButton');
+    $deleteStream = $('#streamDeleteButton'),
 
+    $createAccess = $('#accessCreateButton'),
+    $updateAccess = $('#accessUpdateButton'),
+    $getAccess = $('#accessGetButton'),
+    $deleteAccess = $('#accessDeleteButton');
 
   tabManagement();
-  display.tabState('start');
+  manage.tabState('start');
   login.pryvLogin(function (auth) { connection = auth; });
 
   $createEvent.click(function () {
@@ -50,20 +55,38 @@ $(document).ready(function() {
   $deleteStream.click(function () {
     streams.deleteStream(connection);
   });
+
+  $createAccess.click(function () {
+    accesses.createAccess(connection);
+  });
+  $updateAccess.click(function () {
+    accesses.updateAccess(connection);
+  });
+  $getAccess.click(function () {
+    accesses.getAccess(connection);
+  });
+  $deleteAccess.click(function () {
+    accesses.deleteAccess(connection);
+  });
+
 });
 
 function tabManagement() {
-  var $eventsTitle = $('#eventsTitle'),
-    $streamsTitle =  $('#streamsTitle'),
-    $hideOption = $('.hideDiv');
+var $hideOption = $('.hideDiv'),
+  $eventsTitle = $('#eventsTitle'),
+  $streamsTitle =  $('#streamsTitle'),
+  $accessesTitle = $('#accessesTitle');
 
+  $hideOption.click(function () {
+    manage.hideOption();
+  });
   $eventsTitle.click(function () {
-    display.tabState('events');
+    manage.tabState('events');
   });
   $streamsTitle.click(function () {
-    display.tabState('streams');
+    manage.tabState('streams');
   });
-  $hideOption.click(function () {
-    display.hideOption();
+  $accessesTitle.click(function () {
+    manage.tabState('accesses');
   });
 }

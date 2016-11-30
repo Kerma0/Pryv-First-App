@@ -55,6 +55,9 @@
         <div class="titleDiv" id="streamsTitle">
             <h2>Streams Management</h2>
         </div>
+        <div class="titleDiv" id="accessesTitle">
+            <h2>Accesses Management</h2>
+        </div>
     </div>
 
     <div class="container" id="eventsContainer">
@@ -124,6 +127,33 @@
             </div>
             <input type="text" id="streamDeleteId" placeholder="StreamId"/><br>
             <button id="streamDeleteButton">Delete Stream</button>
+        </div>
+    </div>
+
+    <div class="container" id="accessesContainer">
+        <div class="subContainer">
+            <h3>Create</h3>
+            <input type="text" id="accessCreateName" placeholder="Name"/><br>
+            <input type="text" id="accessCreateId" placeholder="StreamId"/><br>
+            <input type="text" id="accessCreateLevel" placeholder="Level"/><br>
+            <button id="accessCreateButton">Create Access</button>
+        </div>
+
+        <div class="subContainer">
+            <h3>Update</h3>
+            <input type="text" id="accessUpdateName" placeholder="Name"/><br>
+            <button id="accessUpdateButton">Update Last Access</button>
+        </div>
+
+        <div class="subContainer">
+            <h3>Get</h3>
+            <button id="accessGetButton">Display Access</button>
+        </div>
+
+        <div class="subContainer">
+            <h3>Delete</h3>
+            <input type="text" id="accessDeleteId" placeholder="AccessId"/><br>
+            <button id="accessDeleteButton">Delete Access</button>
         </div>
     </div>
 

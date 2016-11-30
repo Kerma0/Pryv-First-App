@@ -3,6 +3,7 @@
 var pryv = require('pryv');
 
 var info = require('./info'),
+  print = require('../utils/print'),
   display = require('../utils/display');
 
 module.exports.setupMonitor = function (connection) {
@@ -13,7 +14,7 @@ module.exports.setupMonitor = function (connection) {
   monitor.initWithPrefetch = 0;
 
   monitor.addEventListener(pryv.MESSAGES.MONITOR.ON_LOAD, function (events) {
-    display.printToConsole('Monitor: events loaded');
+    print.printToConsole('Monitor: events loaded');
     events.forEach(function (event) {
       display.displayEventChange(event, 'loaded');
     });
@@ -37,7 +38,7 @@ module.exports.setupMonitor = function (connection) {
   });
 
   monitor.start(function (err) {
-    if (err) { return display.printError('Monitor error:', err); }
-    display.printToConsole('Monitor: started');
+    if (err) { return print.printError('Monitor error:', err); }
+    print.printToConsole('Monitor: started');
   });
 };
