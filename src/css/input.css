@@ -41,7 +41,7 @@ input[type=checkbox]:checked + label {
 }
 
 label {
-    background-image: url('../../assets/img/checkboxStyle.png');
+    background-image: url('../assets/checkboxStyle.png');
 }
 
 select {
