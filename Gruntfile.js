@@ -38,6 +38,13 @@ module.exports = function (grunt) {
             filter: 'isFile',
             src: ['src/css/*.css'],
             dest: 'dist/css'
+          },
+          {
+            expand: true,
+            flatten: true,
+            filter: 'isFile',
+            src: ['assets/**/*.*'],
+            dest: 'dist/assets'
           }
         ]
       }
