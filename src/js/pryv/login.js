@@ -6,6 +6,7 @@ var info = require('./info'),
   monitor = require('./monitor'),
   print = require('../utils/print'),
   manage = require('../utils/manage'),
+  parsing = require('../utils/parsing'),
   config = require('../../../config.json');
 
 module.exports.pryvLogin = function (callback) {
@@ -26,45 +27,52 @@ module.exports.pryvLogin = function (callback) {
           if (!popupUrl || !pollUrl || !pollRateMs) {
             print.printError('Something went wrong while trying to authenticate.' + '\n');
           }
-          callback(null);
         },
         signedIn: function (settings) {
           connection = new pryv.Connection(settings);
+          info.showAccessInfo(connection);
           connection.fetchStructure(function (err) {
-            if (err) { print.printError(err); }
+            if (err) { return print.printError(err); }
             print.printToConsole('...access granted for user ' + settings.username +
               ' with following token: ' +  settings.auth + '.');
             info.showStreamTree(connection);
             monitor.setupMonitor(connection);
             callback(connection);
           });
-          info.showAccessInfo(connection);
         },
         refused: function (code) {
           print.printToConsole('...access refused: ' + code + '\n');
-          callback(null);
         },
         error: function (code, message) {
           print.printToConsole('...error [' + code + ']: ' + message + '\n');
-          callback(null);
         }
       }
+    },
+    urlParams = parsing.parsUrl();
+
+  if (urlParams && urlParams.token && urlParams.username) {
+    var authSettings = {
+      username: urlParams.username,
+      domain: urlParams.domain.substring(0, 4) !== 'reg.' ?
+      urlParams.domain : urlParams.domain.substring(4, urlParams.domain.length),
+      auth: urlParams.token
     };
-
-  pryvAuth(settings);
-};
-
-
-function pryvAuth(settings) {
-  var domain = pryv.utility.urls.parseClientURL().parseQuery()['pryv-domain'];
-
-  if (domain && domain.substring(0, 4) === 'reg.') {
-    pryv.Auth.config.registerURL.host = domain;
-  } else if (domain) {
-    pryv.Auth.config.registerURL.host = 'reg.' + domain;
+    connection = new pryv.Connection(authSettings);
+    info.showAccessInfo(connection);
+    connection.fetchStructure(function (err) {
+      if (err) { return print.printError(err); }
+      print.printToConsole('...access granted for user ' + settings.username +
+        ' with following token: ' +  settings.auth + '.');
+      info.showStreamTree(connection);
+      monitor.setupMonitor(connection);
+      callback(connection);
+    });
+  } else if (urlParams) {
+    pryv.Auth.config.registerURL.host =
+      urlParams.domain.substring(0, 4) !== 'reg.' ?
+      'reg.' + urlParams.domain : urlParams.domain ;
+    pryv.Auth.setup(settings);
   } else {
-    pryv.Auth.config.registerURL.host = 'reg.' + config.pryv.domain;
+    callback();
   }
-
-  pryv.Auth.setup(settings);
-}
+};

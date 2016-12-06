@@ -14,7 +14,7 @@ if (!config.http || !config.http.ip || !config.http.port) {
 }
 
 if (!fs.existsSync(__dirname + '/../dist/')) {
-  return console.log('WARNING: Run \'npm run grunt\' before \'npm start\' to build the app.');
+  return console.log('WARNING: Run \'npm run grunt\' to build the app.');
 }
 
 var server = http.createServer(app);

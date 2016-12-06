@@ -2,39 +2,45 @@
     width: 95%;
     display: inline-block;
     box-sizing: border-box;
-    margin: 10px 2.5% 0px 2.5%;
+    margin: 0px 2.5% -4px 2.5%;
 }
 
 .title h2 {
-    font-size: 30px;
+    font-size: 25px;
     margin : 10px 0px 10px 0px;
 }
 
-.titleDiv {
-    width: 375px;
+.title ul {
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    display: table;
+}
+
+.title ul > li {
+    width: calc(25% - 3.5px);
+    margin: 0px;
     cursor: pointer;
-    margin-right: 5px;
     display: inline-block;
     box-sizing: border-box;
-    background-color: #cdcdcd;
     padding: 0px 10px 0px 10px;
     border-radius: 6px 6px 0px 0px;
-    transition: background-color 500ms;
+}
+
+.titleDiv {
+    background-color: #cdcdcd;
+    border-bottom: 2px solid #b4b4b4;
+    transition: background-color 500ms, border-bottom 500ms;
 }
 
 .titleDiv:hover {
     background-color: #e6e6e6;
-    transition: background-color 500ms
+    border-bottom: 2px solid #9b9b9b;
+    transition: background-color 500ms, border-bottom 500ms;
 }
 
 .titleFocus {
-    width: 375px;
-    cursor: pointer;
-    margin-right: 5px;
-    display: inline-block;
-    box-sizing: border-box;
     background-color: #e6e6e6;
-    padding: 0px 10px 0px 10px;
-    border-radius: 6px 6px 0px 0px;
-    transition: background-color 500ms;
+    border-bottom: 2px solid #505050;
+    transition: background-color 500ms, border-bottom 500ms;
 }

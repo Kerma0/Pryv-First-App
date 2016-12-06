@@ -91,13 +91,13 @@ module.exports.getEvent = function (connection) {
     }) === false) { return; }
   var filter = new pryv.Filter({streams: [$streamId.val()], limit: count});
   if (count === 1) {
-    print.printToConsole('Displaying ' + count + ' event...');
+    print.printToConsole('Fetching ' + count + ' event...');
   } else {
-    print.printToConsole('Displaying ' + count + ' events...');
+    print.printToConsole('Fetching ' + count + ' events...');
   }
   connection.events.get(filter, function (err, eventList) {
     if (err) { return print.printError(err); }
-    if (eventList.length === 0) { print.printToConsole('...there is no event.'); }
+    if (eventList.length === 0) { return print.printToConsole('...there is no event.'); }
     eventList.forEach(function (event, i) {
       if (i === eventList.length - 1) {
         display.displayEventData(event, 'end');
@@ -134,7 +134,7 @@ module.exports.deleteEvent = function(connection) {
   }
   connection.events.get(filter, function (err, eventList) {
     if (err) { return print.printError(err); }
-    if (eventList.length === 0) { print.printToConsole('...there is no event.'); }
+    if (eventList.length === 0) { return print.printToConsole('...there is no event.'); }
     eventList.forEach(function (event) {
       connection.events.delete(event, function (err, eventDeleted) {
         if (err) { return print.printError(err); }

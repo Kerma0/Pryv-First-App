@@ -22,16 +22,19 @@ module.exports.resetAll = function (callback) {
 module.exports.hideOption = function () {
   var $accessInfoDiv = $('#accessInfoDiv'),
     $streamTreeDiv = $('#streamTreeDiv'),
-    $hideState = $('#hideState');
+    $hideState = $('#hideState'),
+    $hideView = $('#hideView');
 
   if ($accessInfoDiv.is(':visible') && $streamTreeDiv.is(':visible')) {
     $accessInfoDiv.hide();
     $streamTreeDiv.hide();
     $hideState.text('Show');
+    $hideView.removeClass('hideIt').addClass('showIt');
   } else {
     $accessInfoDiv.show();
     $streamTreeDiv.show();
     $hideState.text('Hide');
+    $hideView.removeClass('showIt').addClass('hideIt');
   }
 };
 
@@ -41,29 +44,41 @@ module.exports.tabState = function (state) {
     $accessesView = $('#accessesContainer'),
     $eventsTitle = $('#eventsTitle'),
     $streamsTitle =$('#streamsTitle'),
-    $accessesTitle = $('#accessesTitle');
+    $accessesTitle = $('#accessesTitle'),
+    $profileView = $('#profileContainer'),
+    $profileTitle = $('#profileTitle');
 
   switch(state) {
     case 'start':
       $eventsView.hide();
       $streamsView.hide();
       $accessesView.hide();
+      $profileView.hide();
       tabShow($eventsView, $eventsTitle);
       break;
     case 'events':
       tabHide($accessesView, $accessesTitle);
+      tabHide($profileView, $profileTitle);
       tabHide($streamsView, $streamsTitle);
       tabShow($eventsView, $eventsTitle);
       break;
     case 'streams':
       tabHide($accessesView, $accessesTitle);
+      tabHide($profileView, $profileTitle);
       tabHide($eventsView, $eventsTitle);
       tabShow($streamsView, $streamsTitle);
       break;
     case 'accesses':
       tabHide($eventsView, $eventsTitle);
+      tabHide($profileView, $profileTitle);
       tabHide($streamsView, $streamsTitle);
       tabShow($accessesView, $accessesTitle);
+      break;
+    case 'profile':
+      tabHide($eventsView, $eventsTitle);
+      tabHide($streamsView, $streamsTitle);
+      tabHide($accessesView, $accessesTitle);
+      tabShow($profileView, $profileTitle);
       break;
   }
 };

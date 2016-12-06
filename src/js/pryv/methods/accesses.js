@@ -87,10 +87,10 @@ module.exports.getAccess = function (connection) {
       vars: [ connection ],
       messages: [ 'You must sign in first.' ]
     }) === false) { return; }
-  print.printToConsole('Displaying access...');
+  print.printToConsole('Fetching accesses...');
   connection.accesses.get(function (err, accessList) {
     if (err) { return print.printError(err); }
-    if (accessList.length === 0) { print.printToConsole('...there is no access.'); }
+    if (accessList.length === 0) { return print.printToConsole('...there is no access.'); }
     accessList.forEach(function (event, i) {
       if (i === accessList.length - 1) {
         display.displayAccessData(event, 'end');

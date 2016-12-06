@@ -81,10 +81,10 @@ module.exports.getStream = function (connection) {
   var option = { state: null };
   if ($choice.length === 1) { option.state = 'all'; }
   if ($parentId.val()) { _.assign(option, { parentId: $parentId.val() }); }
-  print.printToConsole('Displaying streams...');
+  print.printToConsole('Fetching streams...');
   connection.streams.get(option, function (err, streamList) {
     if (err) { return print.printError(err); }
-    if (streamList.length === 0) { print.printToConsole('...there is no stream.'); }
+    if (streamList.length === 0) { return print.printToConsole('...there is no stream.'); }
     streamList.forEach(function (stream, i) {
       if (i === streamList.length - 1) {
         display.displayStreamData(stream, 'end');

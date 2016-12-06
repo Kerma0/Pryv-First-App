@@ -10,29 +10,43 @@ It is advised to look at the [Javascript Getting Started](http://api.pryv.com/ge
 
 ## Installation
 
-* Access the app via [Github Pages](https://kerma2.github.io/pryv-example-app/)
+#### Direct Access
 
-  __OR__
+The app is accessible via [Github Pages](https://kerma2.github.io/pryv-example-app/) (it doesn't require any install).
 
-* Clone/Download and follow the steps below:
-  * Prerequisite: __*npm*__ & __*node*__
+#### Clone/Download
 
-  * At the root of the repository:
-    * Install dependencies: `npm install`.
-    * Build the app: `npm run grunt`.
-    * Start the app: `npm start`.
+* Prerequisite: __*npm*__ & __*node*__
 
-  * Open the link displayed your terminal (default: http://127.0.0.1:8080).
+* At the root of the repository:
+  * Install dependencies: `npm install`.
+  * Build the app: `npm run grunt`.
+  * Start the app: `npm start`.
+
+* Open the link displayed your terminal (default: http://127.0.0.1:8080).
 
 ## Config
 
-You can chose the pryv/register domain from url using one of the format below:
-  * url/?pryv-domain={custom pryv domain} (example: pryv.io).
-  * url/?pryv-domain={custom register domain} (example: reg.pryv.io).
+#### Url Parameters
 
-Note that this parameter will override the domain set in the `config.json` file.
+You can configure the app using url parameters:
+  * Token : url/?token={valid-token}
+  * Username: url/?username={username}
+  * Domain :
+    * url/?pryv-domain={custom pryv domain} (example: pryv.io).
+    * url/?pryv-domain={custom register domain} (example: reg.pryv.io).
 
-The `config.json` file is available at the root of the repository:
+The token and username parameters must be used together.
+
+The access token can be generated using [Pryv Access Token Generation](https://pryv.github.io/app-web-access/?pryv-reg=reg.pryv.me).
+
+These parameters will override the matching parameters set in the `config.json`.
+
+Example: http://127.0.0.1:8080/?username=user&token=ckdlsl4&pryv-domain=pryv.me
+
+#### Config File
+
+The `config.json` is located at the root of the repository:
 ```
 {
   "http": {
@@ -51,4 +65,4 @@ The `config.json` file is available at the root of the repository:
 
 ## Example
 
-![Alt Text](./img/example.png)
+![Alt Text](./assets/img/example.png)

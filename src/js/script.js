@@ -6,6 +6,7 @@ var login = require('./pryv/login'),
   manage = require('./utils/manage'),
   events = require('./pryv/methods/events'),
   streams = require('./pryv/methods/streams'),
+  profile = require('./pryv/methods/profile'),
   accesses = require('./pryv/methods/accesses');
 
 var connection = null;
@@ -24,7 +25,10 @@ $(document).ready(function() {
     $createAccess = $('#accessCreateButton'),
     $updateAccess = $('#accessUpdateButton'),
     $getAccess = $('#accessGetButton'),
-    $deleteAccess = $('#accessDeleteButton');
+    $deleteAccess = $('#accessDeleteButton'),
+
+    $getPublicProfile = $('#publicProfileGetButton'),
+    $setPublicProfile = $('#publicProfileSetButton');
 
   tabManagement();
   manage.tabState('start');
@@ -69,15 +73,27 @@ $(document).ready(function() {
     accesses.deleteAccess(connection);
   });
 
+  $getPublicProfile.click(function () {
+    profile.getPublicProfile(connection);
+  });
+  $setPublicProfile.click(function () {
+    profile.setPublicProfile(connection);
+  });
+
 });
 
 function tabManagement() {
-var $hideOption = $('.hideDiv'),
-  $eventsTitle = $('#eventsTitle'),
-  $streamsTitle =  $('#streamsTitle'),
-  $accessesTitle = $('#accessesTitle');
+  var $hideOption = $('.hideIt'),
+    $showOption = $('.showIt'),
+    $eventsTitle = $('#eventsTitle'),
+    $streamsTitle =  $('#streamsTitle'),
+    $accessesTitle = $('#accessesTitle'),
+    $profileTitle = $('#profileTitle');
 
   $hideOption.click(function () {
+    manage.hideOption();
+  });
+  $showOption.click(function () {
     manage.hideOption();
   });
   $eventsTitle.click(function () {
@@ -88,5 +104,8 @@ var $hideOption = $('.hideDiv'),
   });
   $accessesTitle.click(function () {
     manage.tabState('accesses');
+  });
+  $profileTitle.click(function () {
+    manage.tabState('profile');
   });
 }

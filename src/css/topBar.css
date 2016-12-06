@@ -2,37 +2,38 @@
     width: 95%;
     height: 50px;
     padding: 0px;
+    display: table;
+    background: #e6e6e6;
     border-radius: 6px;
     margin: 10px 2.5% 15px 2.5%;
-    background: #e6e6e6;
 }
 
 .topBar #home {
     float: left;
-    height: inherit;
+    height: 50px;
+    width: 200px;
+    text-align: left;
     padding-left: 10px;
-    padding-right: 10px;
-    margin-left: 0px;
 }
 
 .topBar #logo {
-    height: inherit;
-    padding-left: 65px;
-    padding-right: 10px;
-    display: inline-block;
-    vertical-align: middle;
+    height: 50px;
 }
 
 .topBar #sign {
     float: right;
-    height: inherit;
-    padding-left: 10px;
-    padding-right: 10px;
-    margin-right: 0px;
+    width: 200px;
+    text-align: right;
+    padding: 12px 10px 0px 0px;
 }
 
-.topBar #sign #signDiv {
-    margin-top: 11px;
+.topBar ul {
+    margin: 0px;
+    padding: 0px;
+}
+
+.topBar ul > li {
+    display: inline-block;
 }
 
 .topBar a {

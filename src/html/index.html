@@ -15,25 +15,25 @@
 <body>
 <div class="wrapper">
     <div class="topBar">
-        <div id="home">
-            <a href="http://api.pryv.com/getting-started/javascript/" target="_blank">
-                <img src="./img/iconHome.png">
-            </a>
-        </div>
-        <div id="logo">
-            <a href="http://api.pryv.com/" target="_blank">
-                <img src="./img/logoPrYv.png">
-            </a>
-        </div>
-        <div id="sign">
-            <div id="signDiv">
+        <ul>
+            <li id="home">
+                <a href="http://pryv.github.io/" target="_blank">
+                    <img src="assets/img/iconHome.png">
+                </a>
+            </li>
+            <li id="logo">
+                <a href="http://pryv.github.io/reference-full/" target="_blank">
+                    <img src="assets/img/logoPrYv.png">
+                </a>
+            </li>
+            <li id="sign">
                 <span id="pryv-button"></span>
-            </div>
-        </div>
+            </li>
+        </ul>
     </div>
 
     <div class="container">
-        <div class="hideDiv">
+        <div class="hideIt" id="hideView">
             <p id="hideState">Hide</p>
         </div>
 
@@ -49,15 +49,20 @@
     </div>
 
     <div class="title">
-        <div class="titleDiv" id="eventsTitle">
-            <h2>Events Management</h2>
-        </div>
-        <div class="titleDiv" id="streamsTitle">
-            <h2>Streams Management</h2>
-        </div>
-        <div class="titleDiv" id="accessesTitle">
-            <h2>Accesses Management</h2>
-        </div>
+        <ul>
+            <li class="titleDiv" id="eventsTitle">
+                <h2>Events Management</h2>
+            </li>
+            <li class="titleDiv" id="streamsTitle">
+                <h2>Streams Management</h2>
+            </li>
+            <li class="titleDiv" id="accessesTitle">
+                <h2>Accesses Management</h2>
+            </li>
+            <li class="titleDiv" id="profileTitle">
+                <h2>Profile Management</h2>
+            </li>
+        </ul>
     </div>
 
     <div class="container" id="eventsContainer">
@@ -89,6 +94,12 @@
             <h3>Delete</h3>
             <input type="text" id="eventDeleteCount" placeholder="Number" required="required"/><br>
             <button id="eventDeleteButton">Delete Last Events</button>
+        </div>
+
+        <div class="linkDiv">
+            <a href="http://pryv.github.io/reference-full/#events" target="_blank">
+                Pryv API Reference: EVENTS
+            </a>
         </div>
     </div>
 
@@ -128,6 +139,12 @@
             <input type="text" id="streamDeleteId" placeholder="StreamId"/><br>
             <button id="streamDeleteButton">Delete Stream</button>
         </div>
+
+        <div class="linkDiv">
+            <a href="http://pryv.github.io/reference-full/#streams" target="_blank">
+                Pryv API Reference: STREAMS
+            </a>
+        </div>
     </div>
 
     <div class="container" id="accessesContainer">
@@ -154,6 +171,32 @@
             <h3>Delete</h3>
             <input type="text" id="accessDeleteId" placeholder="AccessId"/><br>
             <button id="accessDeleteButton">Delete Access</button>
+        </div>
+
+        <div class="linkDiv">
+            <a href="http://pryv.github.io/reference-full/#accesses" target="_blank">
+                Pryv API Reference: ACCESSES
+            </a>
+        </div>
+    </div>
+
+    <div class="container" id="profileContainer">
+        <div class="subContainer">
+            <h3>Get Public</h3>
+            <input type="text" id="publicProfileGetName" placeholder="Key (optional)"/><br>
+            <button id="publicProfileGetButton">Get Public Profile</button>
+        </div>
+
+        <div class="subContainer">
+            <h3>Set Public</h3>
+            <input type="text" id="publicProfileSetKey" placeholder="Key"/><br>
+            <input type="text" id="publicProfileSetValue" placeholder="Value (Empty -> Delete)"/><br>
+            <button id="publicProfileSetButton">Set Public Profile</button>
+        </div>
+        <div class="linkDiv">
+            <a href="http://pryv.github.io/reference-full/#profile-sets" target="_blank">
+                Pryv API Reference: PROFILE
+            </a>
         </div>
     </div>
 

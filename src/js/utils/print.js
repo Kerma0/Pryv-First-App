@@ -17,7 +17,7 @@ module.exports.printError = function (err) {
     module.exports.printToConsole(err.message);
   } else {
     module.exports.printToConsole('ERROR: An error occurred,' +
-      ' open your browser console for details.');
+      ' open your browser console for more details.');
   }
   console.log('ERROR:', err);
 };

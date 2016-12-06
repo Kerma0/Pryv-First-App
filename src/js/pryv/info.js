@@ -29,8 +29,7 @@ module.exports.showAccessInfo = function (connection) {
   $console.val('Loading...');
   connection.accessInfo(function (err, info) {
     if (err) {
-      $console.val('Something went wrong while loading access info.');
-      return print.printError(err);
+      return $console.val('Something went wrong while loading access info.');
     }
     $console.val(JSON.stringify(info, null, '  '), $console);
   });
