@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Kerma0/pryv-example-app.git"
+    "url": "https://github.com/kerma2/pryv-example-app.git"
   },
   "dependencies": {
     "pryv": "latest"
