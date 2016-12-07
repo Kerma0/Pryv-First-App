@@ -54,4 +54,5 @@ select {
 
 button {
     margin: 5px;
+    font-family: inherit;
 }
